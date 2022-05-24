@@ -14,4 +14,5 @@
 * Draw board layout 
 * Selecting music pattern 
 * Moving beat tracker
-* 
+* Add audio
+*
