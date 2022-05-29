@@ -15,4 +15,7 @@
 * Selecting music pattern 
 * Moving beat tracker
 * Add audio
-*
+* Add functionality 
+    - play & pause
+    
+

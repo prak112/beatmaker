@@ -17,17 +17,27 @@ green = (0, 255, 0)
 gold = (212, 175, 55)
 blue = (0, 255, 255)
 
-# screen display settings
-screen = pygame.display.set_mode([width, height])
-pygame.display.set_caption('BEAT MAKER')
-label_font = pygame.font.Font('freesansbold.ttf', 28) # search for other cool .ttf fonts
-
 # frame rate
 fps = 4
 timer = pygame.time.Clock()
 beats = 8
 instruments = 6
- 
+
+# audio file loads in display-order
+high_hat = mixer.Sound("sounds\kit1\hi_hat.WAV")
+snare = mixer.Sound("sounds\kit1\snare.WAV")
+kick = mixer.Sound("sounds\kit1\kick.WAV")
+crash = mixer.Sound("sounds\kit1\crash.WAV")
+clap = mixer.Sound("sounds\kit1\clap.WAV")
+tom = mixer.Sound("sounds\kit1\\tom.WAV")
+# to open different beat channels
+pygame.mixer.set_num_channels(instruments * 3)
+
+# screen display settings
+screen = pygame.display.set_mode([width, height])
+pygame.display.set_caption('BEAT MAKER')
+label_font = pygame.font.Font('freesansbold.ttf', 28) # search for other cool .ttf fonts
+
 # empty list developed for saving click patterns on the beat board layout--current inactive  
 clicked = [[-1 for _ in range(beats)] for _ in range(instruments)]
 
@@ -37,8 +47,6 @@ playing = True
 active_length = 0
 active_beat = 0
 beat_changed = True
-
-
 
 
 #%% FUNCTION --to define beats-board layout
@@ -112,6 +120,27 @@ def draw_grid(clicked, beat):
 
     return boxes
 
+#%% FUNCTION to play notes
+def play_notes():
+    """
+    """
+    # scan through range of clicked buttons
+    for i in range(len(clicked)):
+        # scan columns
+        if clicked[i][active_beat] == 1:
+            # scan rows
+            if i == 0:
+                high_hat.play()
+            elif i == 1:
+                snare.play()
+            elif i == 2:
+                kick.play()
+            elif i == 3:
+                crash.play()
+            elif i == 4:
+                clap.play()
+            else:
+                tom.play()
 
 
 
@@ -123,6 +152,10 @@ while run:
     screen.fill(black)
     boxes = draw_grid(clicked, active_beat)
 
+    # play audio once per beat
+    if beat_changed:
+        play_notes()
+        beat_changed = False
 
     for event in pygame.event.get():
         # checks for every movement/event
