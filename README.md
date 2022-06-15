@@ -17,7 +17,9 @@
 * Add audio
 * Add functionality 
     - play & pause
-    - adjust bpm & speed
+    - adjust BPM & speed
     - turn instrument on/off
-    -
+    - add save, load & clear buttons
+    - add save, load & clear functionality
+    -  
 
