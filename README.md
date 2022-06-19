@@ -16,10 +16,11 @@
 * Moving beat tracker
 * Add audio
 * Add functionality 
-    - play & pause
+    - Play & Pause
     - adjust BPM & speed
-    - turn instrument on/off
-    - add save, load & clear buttons
-    - add save, load & clear functionality
-    -  
+    - turn Instrument ON/OFF
+    - add Save, Load & Clear buttons
+    - add Clear functionality
+    - add Save beat functionality
+    - add Load  
 
