@@ -22,5 +22,5 @@
     - add Save, Load & Clear buttons
     - add Clear functionality
     - add Save beat functionality
-    - add Load  
+    - add Load beat functionality 
 
